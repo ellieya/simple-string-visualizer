@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                text-align: center;
+                border: 1px solid black;
+                padding: 2px;
+                margin: 0;
+                width: 15px;
+            }
+        </style>
+        <script>
+            clickHandler = () => {
+                stringValue = document.getElementById("string-holder").value
+                charsElement = document.getElementById("chars")
+                numbersElement = document.getElementById("numbers")
+
+                //Reset everything
+                charsElement.innerHTML = "<td>CHARACTER</td>"
+                numbersElement.innerHTML = "<td>INDEX</td>"
+                charactersHTMLString = ""
+                numbersHTMLString = ""
+                for (let i in stringValue) {
+                    console.log(stringValue[i])
+                    charactersHTMLString += "<td>" + stringValue[i] + "</td>"
+                    numbersHTMLString += "<td>" + i + "</td>"
+                }
+                
+                charsElement.innerHTML += charactersHTMLString
+                numbersElement.innerHTML += numbersHTMLString
+            }
+        </script>
+    </head>
+    <body>
+        String: <input type="text" id="string-holder"> <button onclick="clickHandler()">Go</button>
+        <table id="table" style="border:1px solid black">
+            <tr id="chars">
+                <td>
+                    CHARACTER
+                </td>
+            </tr>
+            <tr id="numbers">
+                <td>
+                    INDEX
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
